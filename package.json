@@ -1,6 +1,6 @@
 {
   "name": "tbanys",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "get to know Tautvydas Banys",
   "bin": {
     "tbanys": "index.js"

@@ -11,5 +11,13 @@
   "keywords": [
     "tautvydas",
     "banys"
-  ]
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "tbanys/tbanys",
+  "author": {
+    "name": "Tautvydas Banys",
+    "email": "banys.tautvydas@gmail.com",
+    "url": "https://twitter.com/tautvydas_banys"
+  }
 }

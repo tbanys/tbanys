@@ -1,0 +1,7 @@
+{
+  "name": "tbanys",
+  "version": "1.0.0",
+  "bin": {
+    "tbanys": "index.js"
+  }
+}

@@ -2,6 +2,7 @@
 
 const pkgJSON = require('./package.json');
 const welcome = require('cli-welcome');
+const chalk = require('chalk');
 
 welcome({
   title: pkgJSON.name,
@@ -17,7 +18,7 @@ welcome({
 // Shabang in to of the top of the file
 // It tells terminal to run this script with node.js
 console.log(`
-  Tautvydas Banys
+  ${chalk.bgBlue.bold(` Tautvydas Banys `)}
 
-  Web developer
+  ${chalk.dim(`Web developer`)}
 `);

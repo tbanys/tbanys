@@ -3,7 +3,7 @@
 const chalk = require('chalk');
 const sym = require('log-symbols');
 const alerts = require('cli-alerts-tbanys');
-
+const handleError = require('cli-handle-error');
 
 const init = require('./utils/init');
 
@@ -36,5 +36,10 @@ alerts();
   
     ${sym.error} ${error(` ERROR `)}: I'm on vocation. Contact me next week
   
-  `)
+  `);
+
+  
+  const err = new Error(`Something went wrong`);
+
+  handleError(`BLOG IS DOWN`, err, false, false);
 })();

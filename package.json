@@ -7,6 +7,8 @@
   },
   "dependencies": {
     "chalk": "^4.1.0",
+    "cli-alerts-tbanys": "^1.0.0",
+    "cli-check-node": "^1.3.4",
     "cli-welcome": "^2.2.2",
     "log-symbols": "^4.0.0"
   },

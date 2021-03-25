@@ -1,7 +1,7 @@
 {
   "name": "tbanys",
   "version": "2.5.0",
-  "description": "get to know Tautvydas Banys",
+  "description": "get to know Tautvydas via `npx tbanys`",
   "bin": {
     "tbanys": "index.js"
   },

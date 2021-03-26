@@ -1,42 +1,19 @@
 #!/usr/bin/env node
-const meow = require('meow');
-const handleError = require('cli-handle-error');
+// const handleError = require('cli-handle-error');
 
 const init = require('./utils/init');
 const data = require('./utils/data');
+const cli = require('./utils/cli');
+const debug = require('./utils/debug');
 
-const helpText = `
-  Usage
-    npx tbanys [options]
-
-  Options
-    bio         Show bio information
-    --no-bio    Don't Show bio information
-    alerts      Show alerts information
-    --no-alers  Don't show alerts information
-
-  Examples
-    npx tbanys --no-social
-`;
-
-const options = {
-  flags: {
-    bio: {
-      type: 'boolean',
-      default: true
-    },
-    alerts: {
-      type: 'boolean',
-      default: true
-    }
-  }
-}
-const cli = meow(helpText, options);
 const flags = cli.flags;
-const inputs = cli.inputs;
+const input = cli.input;
 
-(() => {
+(async () => {
   init();
+
+  input.includes('help') && cli.showHelp(0);
+
   if (flags.bio) {
     console.log(data.bio);
   }
@@ -45,8 +22,8 @@ const inputs = cli.inputs;
     console.log(data.alerts);  
   }
 
-  console.log(`cli.input`, cli.input);
-  console.log(`cli.flags`, cli.flags);
+  //debug info if needed
+  debug(flags.debug, cli);
 
   // const err = new Error(`Something went wrong`);
   // handleError(`BLOG IS DOWN`, err, false, false);

@@ -10,8 +10,7 @@ const flags = cli.flags;
 const input = cli.input;
 
 (async () => {
-  init();
-
+  init(flags.minimal, flags.clear);
   input.includes('help') && cli.showHelp(0);
 
   if (flags.bio) {

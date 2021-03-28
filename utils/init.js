@@ -3,19 +3,21 @@ const welcome = require('cli-welcome');
 const checkNode = require('cli-check-node');
 const unhandled = require('cli-handle-unhandled');
 
-module.exports = () => {
+module.exports = (minimal, clear) => {
   unhandled();
 
-  welcome({
+  !minimal && welcome({
     title: pkgJSON.name,
-    tagLine: 'Hello!',
+    tagLine: 'Hello!!',
     description: pkgJSON.description,
     version: pkgJSON.version,
     bgColor: `#FADC00`,
     color: `#000000`,
     bold: true,
-    clear: true,
+    clear,
   });
+
+  minimal && console.log(`Tautvydas`);
 
   checkNode('10');
 };

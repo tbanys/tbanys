@@ -5,6 +5,7 @@ const init = require('./utils/init');
 const data = require('./utils/data');
 const cli = require('./utils/cli');
 const debug = require('./utils/debug');
+const stats = require('./utils/stats');
 
 const flags = cli.flags;
 const input = cli.input;
@@ -20,6 +21,9 @@ const input = cli.input;
   if (flags.alerts) {
     console.log(data.alerts);  
   }
+
+  // Stats
+  await stats();
 
   //debug info if needed
   debug(flags.debug, cli);

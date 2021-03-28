@@ -1,3 +1,4 @@
+const boxen = require('boxen');
 const pkgJSON = require('./../package.json');
 const welcome = require('cli-welcome');
 const checkNode = require('cli-check-node');
@@ -17,7 +18,9 @@ module.exports = (minimal, clear) => {
     clear,
   });
 
-  minimal && console.log(`Tautvydas`);
+  minimal && console.log(boxen(`Tautvydas`, {
+    padding: 1
+  }));
 
   checkNode('10');
 };

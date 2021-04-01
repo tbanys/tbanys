@@ -1,61 +1,71 @@
 const meow = require('meow');
-const { green, yellow, cyan, dim } = require('chalk');
+const meowHelper = require('cli-meow-help');
 
-const helpText = `
-  Usage
-    ${green(`npx tbanys`)} ${yellow(`[--options]`)} ${cyan(`<command>`)}
+const flags = {
+  alerts: {
+    type: 'boolean',
+    default: true,
+    desc: 'Print alerts info'
+  },
+  'noalerts': {
+    type: 'boolean',
+    default: false,
+    desc: `Don't print alerts info`
+  },
+  bio: {
+    type: 'boolean',
+    default: true,
+    desc: 'Print bio info'
+  },
+  'nobio': {
+    type: 'boolean',
+    default: false,
+    desc: 'Dont print bio info'
+  },
+  clear: {
+    type: 'boolean',
+    default: true,
+    desc: 'Clear the console'
+  },
+  debug: {
+    type: 'boolean',
+    default: false,
+    alias: 'd',
+    desc: 'Print debug info'
+  },
+  minimal: {
+    type: 'boolean',
+    default: false,
+    alias: 'm',
+    desc: 'Print minimal info'
+  },
+  version: {
+    type: 'boolean',
+    default: false,
+    alias: 'v',
+    desc: 'Print cli version'
+  },
+};
 
-  Options
-    ${yellow(`--bio`)}           Print bio info ${dim(`(DEFAULT: true)`)}
-    ${yellow(`--no-bio`)}        Don't print bio info
-    ${yellow(`--alerts`)}              Print alerts info ${dim(`(DEFAULT: true)`)}
-    ${yellow(`--no-alers`)}      Don't print alerts info
-    ${yellow(`--clear`)}         Clear the console ${dim(`(DEFAULT: true)`)}
-    ${yellow(`--no-clear`)}      Don't clear the console
-    ${yellow(`-m`)}, ${yellow(`-minimal`)}    Print minimal info
-    ${yellow(`-d`)}, ${yellow(`--debug`)}     Print debug info
-    ${yellow(`-v`)}, ${yellow(`--version`)}   Print cli version
+const commands = {
+  help: {
+    desc: `Print the help info`,
+  },
+};
 
-  Commands
-  ${cyan(`help`)}              Print CLI help info
-
-  Examples
-  ${green(`npx tbanys`)} ${yellow(`--no-bio`)}
-  ${green(`npx tbanys`)} ${yellow(`--no-alerts`)}
-`;
+const helpText = meowHelper({
+  name: 'npx tbanys',
+  flags,
+  commands,
+  defaults: false,
+  desc: 'This is a CLI that you can use t oget more information about Tautvydas'
+});
 
 const options = {
   inferType: true,
+  description: false,
   hardRejection: false,
-  flags: {
-    minimal: {
-      type: 'boolean',
-      default: false,
-      alias: 'm'
-    },
-    clear: {
-      type: 'boolean',
-      default: true
-    },
-    bio: {
-      type: 'boolean',
-      default: true
-    },
-    alerts: {
-      type: 'boolean',
-      default: true
-    },
-    debug: {
-      type: 'boolean',
-      default: false,
-      alias: 'd'
-    },
-    version: {
-      type: 'boolean',
-      default: false,
-      alias: 'v'
-    },
-  }
+  flags
 }
 
 module.exports = meow(helpText, options);
